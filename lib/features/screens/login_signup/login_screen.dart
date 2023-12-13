@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/homepage.dart';
 import 'package:yhhhamropokhara/features/screens/login_signup/signup_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -110,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(
           height: 10,
         ),
-        _buildLoginButton(),
+        _buildLoginButton(context),
         const SizedBox(
           height: 20,
         ),
@@ -164,11 +165,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildLoginButton() {
+  Widget _buildLoginButton(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
           debugPrint("Email: ${emailController.text}");
           debugPrint("password: ${passwordController.text}");
+
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
         },
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),

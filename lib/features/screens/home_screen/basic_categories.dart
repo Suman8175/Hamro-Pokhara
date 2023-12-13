@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:yhhhamropokhara/core/constants/global_variables.dart';
 
 class BasicCategories extends StatelessWidget {

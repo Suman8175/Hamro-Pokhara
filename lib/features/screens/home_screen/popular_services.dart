@@ -21,8 +21,8 @@ class PopularServices extends StatelessWidget {
               mainAxisSpacing: 8.0,
             ),
             itemCount: GlobalVariables.categoryImages.length,
-            scrollDirection: Axis.vertical,
-            //   physics: const NeverScrollableScrollPhysics(),
+            // scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return Column(
                 children: [

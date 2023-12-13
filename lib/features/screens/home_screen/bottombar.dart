@@ -1,76 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/homepage.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/profile.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+class NavigationMenu extends StatefulWidget {
+  const NavigationMenu({super.key});
 
   @override
-  State<BottomBar> createState() => _BottomBarState();
+  State<NavigationMenu> createState() => _NavigationMenuState();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class _NavigationMenuState extends State<NavigationMenu> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Blog',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Bookmark',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Profile',
-      style: optionStyle,
-    ),
-  ];
 
-  void _onItemTapped(int index) {
+  void onTapImplemented(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  final List<Widget> _widgetOptions = <Widget>[
+    const HomeScreen(),
+    const Profile(),
+    const HomeScreen(),
+    const Profile(),
+  ];
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hello'),
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.red,
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_library),
-            label: 'Blog',
-            backgroundColor: Colors.green,
+            icon: Icon(Icons.add_outlined),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
-            label: 'Bookmark',
-            backgroundColor: Colors.purple,
+            icon: Icon(Icons.notifications),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
-            backgroundColor: Colors.pink,
+            label: '',
           ),
         ],
+        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+        unselectedItemColor: const Color.fromARGB(255, 146, 138, 138),
+        selectedFontSize: 0,
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+        backgroundColor: Color.fromARGB(255, 234, 0, 0),
+        onTap: onTapImplemented,
       ),
     );
   }
