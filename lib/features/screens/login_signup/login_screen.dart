@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
+import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 import 'package:yhhhamropokhara/features/screens/login_signup/signup_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    myColor = Theme.of(context).primaryColor;
+    myColor = HexColor.fromHex(primaryColor);
     mediaSize = MediaQuery.of(context).size.width;
     return Container(
       height: double.infinity,
@@ -44,14 +47,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildTop() {
     return SizedBox(
       width: mediaSize,
-      child: const Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Hamro Pokhara',
+            'hamro_pokhara'.tr(),
             style: TextStyle(
-                color: Colors
-                    .white, //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                color: HexColor.fromHex(loginpageheadingcolor),
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
                 letterSpacing: 2),
@@ -83,23 +85,23 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Welcome",
+          'welcome'.tr(),
           style: TextStyle(
             color: myColor,
             fontSize: 32,
             fontWeight: FontWeight.w500,
           ),
         ),
-        _buildGreyText("please login with your information"),
+        _buildGreyText('login_info'.tr()),
         const SizedBox(
           height: 30,
         ),
-        _buildGreyText("Email Address"),
+        _buildGreyText('email_address'.tr()),
         _buildInputField(emailController),
         const SizedBox(
           height: 20,
         ),
-        _buildGreyText("Password"),
+        _buildGreyText('password'.tr()),
         _buildInputField(passwordController, isPassword: true),
         const SizedBox(
           height: 20,
@@ -120,8 +122,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildGreyText(String text) {
     return Text(
       text,
-      style: const TextStyle(
-          color: Colors.grey, //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      style: TextStyle(
+          color: HexColor.fromHex(
+              loginSignupNormalText), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
           fontWeight: FontWeight.bold),
     );
   }
@@ -152,11 +155,11 @@ class _LoginPageState extends State<LoginPage> {
                     rememberUser = value!;
                   });
                 }),
-            _buildGreyText("Remember me")
+            _buildGreyText('remember_me'.tr())
           ],
         ),
         TextButton(
-            onPressed: () {}, child: _buildGreyText("I forgot my password"))
+            onPressed: () {}, child: _buildGreyText('forget_password'.tr()))
       ],
     );
   }
@@ -171,34 +174,34 @@ class _LoginPageState extends State<LoginPage> {
           shape: const StadiumBorder(),
           elevation: 20,
           shadowColor: myColor,
+          backgroundColor: HexColor.fromHex(buttonColor),
           minimumSize: const Size.fromHeight(60),
         ),
-        child: const Text('Login'));
+        child: Text('login'.tr()));
   }
 
   Widget _signUpButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const Text(
-          "Don't have an account? ",
+        Text(
+          'dont_have_acc'.tr(),
           style: TextStyle(
-              color: Colors.deepPurple,
-              fontSize: 18), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+              color: HexColor.fromHex(loginSignupText2), fontSize: 18),
         ),
         InkWell(
           onTap: () {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const SignUpPage()));
           },
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                "SignUp",
+                'signup'.tr(),
                 style: TextStyle(
-                    color: Colors
-                        .deepPurple, //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    color: HexColor.fromHex(
+                        loginSignupText2), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),

@@ -1,5 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
+// ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/language/localization_checker.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
             message: "change_language".tr(),
             child: IconButton(
                 onPressed: () {
-                  LocalizationChecker.changeLanguge(context);
+                  LocalizationChecker.changeLanguge(context, 'English');
                 },
                 icon: const Icon(Icons.language)))
       ]),

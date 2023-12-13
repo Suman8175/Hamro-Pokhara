@@ -9,10 +9,10 @@ void main() async {
     EasyLocalization(
         path: 'assets/translations',
         supportedLocales: const [
-          Locale('ne', 'NP'),
           Locale('en', 'US'),
+          Locale('ne', 'NP'),
         ],
-        fallbackLocale: const Locale('ne', 'NP'),
+        fallbackLocale: const Locale('en', 'US'),
         child: const MyApp()),
   );
 }

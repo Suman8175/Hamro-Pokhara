@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 import 'package:yhhhamropokhara/features/models/data/get_started/get_started.dart';
-import 'package:yhhhamropokhara/features/screens/home_screen/home_screen.dart';
+import 'package:yhhhamropokhara/features/screens/language_and_city/language_city_screen.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -17,14 +17,13 @@ class _OnBoardingState extends State<OnBoarding> {
   int currentIndex = 0;
   PageController _controller = PageController();
 
-  //Function which does skio and continue button work and navigate user to next screen
+  //Function which does skio and continue button work and navigate user to next screen which is choose language and city
   void onTap(BuildContext context) async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setBool('newUser', false);
-    print(sp.getBool('newUser'));
     if (context.mounted) {
-      Navigator.pushReplacement(
-          (context), MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.pushReplacement((context),
+          MaterialPageRoute(builder: (context) => const LanguageCity()));
     }
   }
 
@@ -121,7 +120,10 @@ class _OnBoardingState extends State<OnBoarding> {
             height: 55,
             margin: const EdgeInsets.all(40),
             width: double.infinity,
-            color: HexColor.fromHex(getStartedColor),
+            decoration: BoxDecoration(
+              color: HexColor.fromHex(buttonColor),
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: TextButton(
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
@@ -139,9 +141,8 @@ class _OnBoardingState extends State<OnBoarding> {
                 currentIndex == contents.length - 1
                     ? 'continue'.tr()
                     : 'next'.tr(),
-                style: TextStyle(
-                  color: HexColor.fromHex(textColor),
-                ),
+                style:
+                    TextStyle(color: HexColor.fromHex(textColor), fontSize: 20),
               ),
             ),
           )

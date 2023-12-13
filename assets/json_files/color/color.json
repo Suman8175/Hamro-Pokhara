@@ -2,12 +2,16 @@
     {
     "color":[
     {
-        "primary_color":"#3256a8",
-        "text_color":"#808080",
-        "title_color":"#a83252",
-        "button_color":"#3256a8",
+        "primary_color":"#808080",
+        "text_color":"#0a0a0a",
+        "title_color":"#5ec4a1",
+        "button_color":"#a83252",
         "get_started_color":"#3256a8",
-        "get_started_icon_color":"#a83252"
+        "get_started_icon_color":"#1825db",
+        "login_page_heading_color":"#8a3dc4",
+        "language_select_button_color":"#bb5ebd",
+        "login_signup_normal_text":"#808080",
+        "login_signup_text_2":"#cc0631"
     }
             ]
     }

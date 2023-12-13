@@ -8,5 +8,20 @@
     "get_started_description3":"simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown took a galley of type and scrambled it",
     "skip":"Skip",
     "next":"Next",
-    "continue":"Continue"
+    "continue":"Continue",
+    "hamro_pokhara":"Hamro Pokhara",
+    "location":"Location",
+    "language":"Language",
+    "welcome":"Welcome",
+    "login_info":"Please login with your information",
+    "signin_info":"Please sign up with your information",
+    "email_address":"Email Address",
+    "password":"Password",
+    "remember_me":"Remember me",
+    "forget_password":"Forgot my password",
+    "login":"Login",
+    "signup":"SignUp",
+    "dont_have_acc":"Don't have an account?",
+    "already_have_acc":"Already have an account?"
+  
 }
