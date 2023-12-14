@@ -89,10 +89,7 @@ class _LanguageCityState extends State<LanguageCity> {
               ],
             ),
             const SizedBox(
-              height: 60,
-            ),
-            const SizedBox(
-              height: 80,
+              height: 140,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

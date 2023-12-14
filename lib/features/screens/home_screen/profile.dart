@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/features/language/localization_checker.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -8,123 +9,262 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  // Define the available languages and cities
-  List<String> languages = ['English', 'Nepali'];
-  String selectedLanguage = 'English';
-
-  List<String> cities = ['Pokhara', 'Kathmandu'];
-  String selectedCity = 'Pokhara';
+  String? dropDownIndex;
+  String? dropDownIndexLanguage;
+  var dropDownList = ["Pokhara"];
+  var dropDownLanguage = ["English", "नेपाली"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                radius: 90,
-                backgroundImage: AssetImage("assets/images/profile.jpg"),
-              ),
-
-              const Text(
-                'Profile',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-
-              // Language Dropdown
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Container(
+                  color: Colors.deepPurple,
+                  height: MediaQuery.of(context).size.height * 0.33,
+                  padding: const EdgeInsets.only(bottom: 115),
+                  child: const Center(
                     child: Text(
-                      'Language: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      'PROFILE',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  DropdownButton<String>(
-                    value: selectedLanguage,
-                    onChanged: (String? newValue) {
-                      if (newValue != null) {
-                        setState(() {
-                          selectedLanguage = newValue;
-                        });
-                      }
-                    },
-                    items:
-                        languages.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10, right: 11),
+                                child: Icon(
+                                  Icons.location_city,
+                                  size: 30,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: 140,
+                                height: 70,
+                                padding:
+                                    const EdgeInsets.only(left: 12, right: 0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: DropdownButton(
+                                    icon: const Expanded(
+                                      child: Icon(
+                                        Icons.expand_more,
+                                        size: 30,
+                                      ),
+                                    ),
+                                    dropdownColor: Colors.white,
+                                    enableFeedback: true,
+                                    iconSize: 16,
+                                    borderRadius: BorderRadius.circular(16),
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    items: dropDownList
+                                        .map((value) => DropdownMenuItem(
+                                              value: value,
+                                              child: Text(
+                                                value,
+                                                style: const TextStyle(
+                                                    fontSize: 24),
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (String? index) {
+                                      setState(() {
+                                        dropDownIndex = index;
+                                      });
+                                    },
+                                    value: dropDownIndex ?? 'Pokhara',
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Icon(
+                                  Icons.language,
+                                  size: 30,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 22,
+                              ),
+                              Container(
+                                width: 140,
+                                height: 70,
+                                padding:
+                                    const EdgeInsets.only(left: 12, right: 0),
+                                child: Center(
+                                  child: DropdownButton(
+                                    icon: const Expanded(
+                                        child: Icon(
+                                      Icons.expand_more,
+                                      size: 30,
+                                    )),
+                                    dropdownColor: Colors.white,
+                                    enableFeedback: true,
+                                    // isExpanded: true,
+                                    iconSize: 16,
+                                    borderRadius: BorderRadius.circular(16),
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    items: dropDownLanguage
+                                        .map((value) => DropdownMenuItem(
+                                              value: value,
+                                              child: Text(
+                                                value,
+                                                style: const TextStyle(
+                                                    fontSize: 24),
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (String? index2) {
+                                      setState(() {
+                                        dropDownIndexLanguage = index2;
+                                        //Change language when selected other language::
 
-// City Dropdown
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'City: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                                        LocalizationChecker.changeLanguge(
+                                            context, dropDownIndexLanguage!);
+                                      });
+                                    },
+                                    value: dropDownIndexLanguage ?? 'English',
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 14.5, right: 17),
+                                child: Icon(
+                                  Icons.key,
+                                  size: 30,
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  _openChangePassword();
+                                },
+                                child: const Text(
+                                  'Change password',
+                                  style: TextStyle(
+                                      fontSize: 23,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 15),
+                          const Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 14.5, right: 29),
+                                child: Icon(
+                                  Icons.logout,
+                                  size: 30,
+                                ),
+                              ),
+                              Text(
+                                'Logout',
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  DropdownButton<String>(
-                    value: selectedCity,
-                    onChanged: (String? newValue) {
-                      if (newValue != null) {
-                        setState(() {
-                          selectedCity = newValue;
-                        });
-                      }
-                    },
-                    items: cities.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                ),
+              ],
+            ),
+            Center(
+              child: Card(
+                elevation: 10,
+                margin: EdgeInsets.only(
+                  top: 15,
+                  left: 35,
+                  right: 35,
+                  bottom: MediaQuery.of(context).size.height * 0.40,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Container(
+                  height: 220,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
-                ],
-              ),
-
-              const SizedBox(
-                height: 40,
-              ),
-
-              ElevatedButton(
-                onPressed: () {
-                  _openChangePassword();
-                },
-                child: const Text(
-                  'Change password',
-                  style: TextStyle(fontSize: 18),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        child: Image.asset('assets/images/user.png'),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        'Suman Devkota',
+                        style: TextStyle(
+                            fontSize: 19,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      const Text(
+                        'suman.yhhits@gmail.com',
+                        style: TextStyle(fontSize: 16, color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
@@ -136,34 +276,57 @@ class _ProfileState extends State<Profile> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Change Password'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Current Password',
+          content: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.77,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Current Password',
+                  ),
                 ),
-              ),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'New Password',
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'New Password',
+                  ),
                 ),
-              ),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Confirm New Password',
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Confirm New Password',
+                  ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Change Password'),
-              ),
-            ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text(
+                        'SAVE',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text(
+                        'CANCEL',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },
