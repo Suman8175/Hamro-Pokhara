@@ -36,8 +36,8 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
               ),
-              ListTile(
-                title: const SizedBox(
+              const ListTile(
+                title: SizedBox(
                   height: 100,
                 ),
               ),
