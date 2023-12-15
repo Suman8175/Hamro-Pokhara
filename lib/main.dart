@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:yhhhamropokhara/features/screens/home_screen/profile.dart';
-import 'package:yhhhamropokhara/features/screens/login_signup/login_screen.dart';
 import 'package:yhhhamropokhara/features/screens/splash_screen/splash_screen.dart';
 
 void main() async {

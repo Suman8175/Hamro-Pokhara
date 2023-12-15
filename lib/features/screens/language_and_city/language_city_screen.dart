@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/language/localization_checker.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
-import 'package:yhhhamropokhara/features/screens/home_screen/bottombar.dart';
 import 'package:yhhhamropokhara/features/screens/login_signup/login_screen.dart';
 
 class LanguageCity extends StatefulWidget {
@@ -192,16 +191,6 @@ class _LanguageCityState extends State<LanguageCity> {
         ),
         _buildLoginButton(context),
       ],
-    );
-  }
-
-  Widget _buildGreyText(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-          color: HexColor.fromHex(
-              loginSignupNormalText), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-          fontWeight: FontWeight.bold),
     );
   }
 

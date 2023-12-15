@@ -3,9 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 import 'package:yhhhamropokhara/features/screens/get_started/on_boarding_screen.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/bottombar.dart';
-import 'package:yhhhamropokhara/features/screens/home_screen/homepage.dart';
-import 'package:yhhhamropokhara/features/screens/language_and_city/language_city_screen.dart';
-import 'package:yhhhamropokhara/features/screens/login_signup/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -43,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (_isNewUser) {
         return const OnBoarding();
       } else {
-        return const LanguageCity();
+        return const NavigationMenu();
       }
     } else {
       return const Scaffold(
