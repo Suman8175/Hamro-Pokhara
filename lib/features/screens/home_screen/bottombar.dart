@@ -32,27 +32,39 @@ class _NavigationMenuState extends State<NavigationMenu> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_outlined),
+            icon: Icon(
+              Icons.add_outlined,
+              size: 30,
+            ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(
+              Icons.notifications,
+              size: 30,
+            ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
             label: '',
           ),
         ],
-        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+        selectedItemColor: Colors.black,
         unselectedItemColor: const Color.fromARGB(255, 146, 138, 138),
         selectedFontSize: 0,
         currentIndex: _selectedIndex,
-        backgroundColor: Color.fromARGB(255, 234, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 234, 0, 0),
         onTap: onTapImplemented,
       ),
     );

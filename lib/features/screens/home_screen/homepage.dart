@@ -35,54 +35,50 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Container(
                       height: 42,
                       margin: const EdgeInsets.only(left: 15),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(12),
-                        elevation: 1,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: InkWell(
-                              onTap: () {},
-                              child: const Padding(
-                                padding: EdgeInsets.only(
-                                  left: 6,
-                                ),
-                                child: Icon(
-                                  Icons.search,
-                                  color: Colors.black,
-                                  size: 23,
-                                ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: InkWell(
+                            onTap: () {},
+                            child: const Padding(
+                              padding: EdgeInsets.only(
+                                left: 6,
+                              ),
+                              child: Icon(
+                                Icons.search,
+                                color: Colors.black,
+                                size: 23,
                               ),
                             ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: const EdgeInsets.only(top: 10),
-                            border: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
-                              ),
-                              borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          contentPadding: const EdgeInsets.only(top: 10),
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
                             ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(7),
-                              ),
-                              borderSide: BorderSide(
-                                color: Colors.black38,
-                                width: 1.2,
-                              ),
+                            borderSide: BorderSide.none,
+                          ),
+                          enabledBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(7),
                             ),
-                            hintText: 'Search',
-                            hintStyle: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
+                            borderSide: BorderSide(
+                              color: Colors.black38,
+                              width: 1.2,
                             ),
+                          ),
+                          hintText: 'Search',
+                          hintStyle: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 17,
                           ),
                         ),
                       ),
