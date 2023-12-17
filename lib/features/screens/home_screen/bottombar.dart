@@ -60,11 +60,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
             label: '',
           ),
         ],
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Colors.black,
         unselectedItemColor: const Color.fromARGB(255, 146, 138, 138),
         selectedFontSize: 0,
         currentIndex: _selectedIndex,
-        backgroundColor: Color.fromARGB(255, 234, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 234, 0, 0),
         onTap: onTapImplemented,
       ),
     );

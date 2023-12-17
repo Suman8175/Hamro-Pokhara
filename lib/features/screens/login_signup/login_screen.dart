@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/bottombar.dart';
-import 'package:yhhhamropokhara/features/screens/home_screen/homepage.dart';
 import 'package:yhhhamropokhara/features/screens/login_signup/signup_screen.dart';
 
 class LoginPage extends StatefulWidget {
