@@ -17,8 +17,8 @@ class _LoginPageState extends State<LoginPage> {
   late double mediaSize;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool rememberUser = false;
-
+  bool isPassword = true;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     myColor = HexColor.fromHex(primaryColor);
@@ -82,41 +82,44 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildForm() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'welcome'.tr(),
-          style: TextStyle(
-            color: myColor,
-            fontSize: 32,
-            fontWeight: FontWeight.w500,
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'welcome'.tr(),
+            style: TextStyle(
+              color: myColor,
+              fontSize: 32,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
-        _buildGreyText('login_info'.tr()),
-        const SizedBox(
-          height: 30,
-        ),
-        _buildGreyText('email_address'.tr()),
-        _buildInputField(emailController),
-        const SizedBox(
-          height: 20,
-        ),
-        _buildGreyText('password'.tr()),
-        _buildInputField(passwordController, isPassword: true),
-        const SizedBox(
-          height: 20,
-        ),
-        _buildRememberForgot(),
-        const SizedBox(
-          height: 10,
-        ),
-        _buildLoginButton(context),
-        const SizedBox(
-          height: 20,
-        ),
-        _signUpButton()
-      ],
+          _buildGreyText('login_info'.tr()),
+          const SizedBox(
+            height: 30,
+          ),
+          _buildGreyText('email_address'.tr()),
+          _buildInputFieldEmail(emailController),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildGreyText('password'.tr()),
+          _buildInputField(passwordController),
+          const SizedBox(
+            height: 20,
+          ),
+          // _buildRememberForgot(),
+          const SizedBox(
+            height: 10,
+          ),
+          _buildLoginButton(context),
+          const SizedBox(
+            height: 20,
+          ),
+          _signUpButton()
+        ],
+      ),
     );
   }
 
@@ -130,49 +133,79 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildInputField(TextEditingController controller,
-      {isPassword = false}) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        suffixIcon: isPassword
-            ? const Icon(Icons.remove_red_eye)
-            : const Icon(Icons.done),
-      ),
-      obscureText: isPassword,
-    );
+  Widget _buildInputField(TextEditingController controller) {
+    return TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+            suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isPassword = !isPassword;
+                    if (isPassword) {}
+                  });
+                },
+                icon: isPassword
+                    ? const Icon(Icons.remove_red_eye)
+                    : const Icon(Icons.done))),
+        obscureText: isPassword,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter some text';
+          }
+          return null;
+        });
   }
 
-  Widget _buildRememberForgot() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Checkbox(
-                value: rememberUser,
-                onChanged: (value) {
-                  setState(() {
-                    rememberUser = value!;
-                  });
-                }),
-            _buildGreyText('remember_me'.tr())
-          ],
-        ),
-        TextButton(
-            onPressed: () {}, child: _buildGreyText('forget_password'.tr()))
-      ],
-    );
+  Widget _buildInputFieldEmail(TextEditingController emailController) {
+    return TextFormField(
+        controller: emailController,
+        keyboardType: TextInputType.emailAddress,
+        decoration: const InputDecoration(suffixIcon: Icon(Icons.email)),
+        textInputAction: TextInputAction.next,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter some text';
+          }
+          return null;
+        });
   }
+
+  // Widget _buildRememberForgot() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       Row(
+  //         children: [
+  //           Checkbox(
+  //               value: rememberUser,
+  //               onChanged: (value) {
+  //                 setState(() {
+  //                   rememberUser = value!;
+  //                 });
+  //               }),
+  //           _buildGreyText('remember_me'.tr())
+  //         ],
+  //       ),
+  //       TextButton(
+  //           onPressed: () {}, child: _buildGreyText('forget_password'.tr()))
+  //     ],
+  //   );
+  // }
 
   Widget _buildLoginButton(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
-          debugPrint("Email: ${emailController.text}");
-          debugPrint("password: ${passwordController.text}");
-
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const NavigationMenu()));
+          if (_formKey.currentState!.validate()) {
+            // If the form is valid, display a snackbar. In the real world,
+            // you'd often call a server or save the information in a database.
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Processing Data')),
+            );
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NavigationMenu()));
+          }
         },
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
