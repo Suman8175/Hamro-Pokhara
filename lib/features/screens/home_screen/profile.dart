@@ -173,10 +173,11 @@ class _ProfileState extends State<Profile> {
                             child: Center(
                               child: DropdownButton(
                                 icon: const Expanded(
-                                    child: Icon(
-                                  Icons.expand_more,
-                                  size: 30,
-                                )),
+                                  child: Icon(
+                                    Icons.expand_more,
+                                    size: 30,
+                                  ),
+                                ),
                                 dropdownColor: Colors.white,
                                 enableFeedback: true,
                                 iconSize: 16,

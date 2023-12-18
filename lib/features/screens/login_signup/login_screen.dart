@@ -137,16 +137,18 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
         controller: controller,
         decoration: InputDecoration(
-            suffixIcon: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isPassword = !isPassword;
-                    if (isPassword) {}
-                  });
-                },
-                icon: isPassword
-                    ? const Icon(Icons.remove_red_eye)
-                    : const Icon(Icons.done))),
+          suffixIcon: IconButton(
+            onPressed: () {
+              setState(() {
+                isPassword = !isPassword;
+                if (isPassword) {}
+              });
+            },
+            icon: isPassword
+                ? const Icon(Icons.remove_red_eye)
+                : const Icon(Icons.done),
+          ),
+        ),
         obscureText: isPassword,
         validator: (value) {
           if (value == null || value.isEmpty) {
