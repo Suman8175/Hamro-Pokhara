@@ -137,6 +137,7 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
         controller: controller,
         decoration: InputDecoration(
+
           suffixIcon: IconButton(
             onPressed: () {
               setState(() {
@@ -149,6 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                 : const Icon(Icons.done),
           ),
         ),
+
         obscureText: isPassword,
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -156,6 +158,7 @@ class _LoginPageState extends State<LoginPage> {
           }
           return null;
         });
+
   }
 
   Widget _buildInputFieldEmail(TextEditingController emailController) {
@@ -171,6 +174,7 @@ class _LoginPageState extends State<LoginPage> {
           return null;
         });
   }
+
 
   // Widget _buildRememberForgot() {
   //   return Row(
