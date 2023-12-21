@@ -4,10 +4,7 @@ class GlobalVariables {
   // STATIC IMAGES
 
   static const List<Map<String, String>> categoryImages = [
-    {
-      'title': 'Police',
-      'image': 'assets/images/police.png',
-    },
+    {'title': 'Police', 'image': 'assets/images/police.png', 'onclick': ''},
     {
       'title': 'Hospital',
       'image': 'assets/images/hospital.jpg',
