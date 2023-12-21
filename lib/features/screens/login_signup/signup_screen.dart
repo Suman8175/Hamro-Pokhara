@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/bottombar.dart';
 import 'package:yhhhamropokhara/features/screens/login_signup/login_screen.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -16,8 +17,8 @@ class _SignUpPageState extends State<SignUpPage> {
   late double mediaSize;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool rememberUser = false;
-
+  bool isPassword = true;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     myColor = HexColor.fromHex(primaryColor);
@@ -80,40 +81,43 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _buildForm() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'welcome'.tr(),
-          style: TextStyle(
-            color: myColor,
-            fontSize: 32,
-            fontWeight: FontWeight.w500,
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'welcome'.tr(),
+            style: TextStyle(
+              color: myColor,
+              fontSize: 32,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
-        _buildGreyText('signin_info'.tr()),
-        const SizedBox(
-          height: 30,
-        ),
-        _buildGreyText('email_address'.tr()),
-        _buildInputField(emailController),
-        const SizedBox(
-          height: 20,
-        ),
-        _buildGreyText('password'.tr()),
-        _buildInputField(passwordController, isPassword: true),
-        const SizedBox(
-          height: 20,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        _buildLoginButton(),
-        const SizedBox(
-          height: 20,
-        ),
-        _signUpButton()
-      ],
+          _buildGreyText('signin_info'.tr()),
+          const SizedBox(
+            height: 30,
+          ),
+          _buildGreyText('email_address'.tr()),
+          _buildInputFieldEmail(emailController),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildGreyText('password'.tr()),
+          _buildInputField(passwordController),
+          const SizedBox(
+            height: 20,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          _buildLoginButton(context),
+          const SizedBox(
+            height: 20,
+          ),
+          _signUpButton()
+        ],
+      ),
     );
   }
 
@@ -126,33 +130,77 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget _buildInputField(TextEditingController controller,
-      {isPassword = false}) {
-    return TextField(
+  Widget _buildInputField(TextEditingController controller) {
+    return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        suffixIcon: isPassword
-            ? const Icon(Icons.remove_red_eye)
-            : const Icon(Icons.done),
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(
+              () {
+                isPassword = !isPassword;
+                if (isPassword) {}
+              },
+            );
+          },
+          icon: isPassword
+              ? const Icon(Icons.remove_red_eye)
+              : const Icon(Icons.done),
+        ),
       ),
       obscureText: isPassword,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
     );
   }
 
-  Widget _buildLoginButton() {
+  Widget _buildInputFieldEmail(TextEditingController emailController) {
+    return TextFormField(
+      controller: emailController,
+      keyboardType: TextInputType.emailAddress,
+      decoration: const InputDecoration(
+        suffixIcon: Icon(Icons.email),
+      ),
+      textInputAction: TextInputAction.next,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget _buildLoginButton(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {
-          debugPrint("Email: ${emailController.text}");
-          debugPrint("password: ${passwordController.text}");
-        },
-        style: ElevatedButton.styleFrom(
-          shape: const StadiumBorder(),
-          elevation: 20,
-          shadowColor: myColor,
-          backgroundColor: HexColor.fromHex(buttonColor),
-          minimumSize: const Size.fromHeight(60),
-        ),
-        child: Text('signup'.tr()));
+      onPressed: () {
+        if (_formKey.currentState!.validate()) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Processing Data')),
+          );
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NavigationMenu(),
+            ),
+          );
+        }
+      },
+      style: ElevatedButton.styleFrom(
+        shape: const StadiumBorder(),
+        elevation: 20,
+        shadowColor: myColor,
+        backgroundColor: HexColor.fromHex(buttonColor),
+        minimumSize: const Size.fromHeight(60),
+      ),
+      child: Text(
+        'signup'.tr(),
+      ),
+    );
   }
 
   Widget _signUpButton() {
@@ -166,8 +214,12 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         InkWell(
           onTap: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const LoginPage()));
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginPage(),
+              ),
+            );
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
