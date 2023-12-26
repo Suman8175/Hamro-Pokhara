@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/constants/global_variables.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/dataListing/data_listing.dart';
 
 class TopCategories extends StatelessWidget {
   const TopCategories({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class TopCategories extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  print(GlobalVariables.categoryImages[index]['title']!);
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DataListing()));
                 },
                 child: Padding(
                   padding: EdgeInsets.only(right: 20),
