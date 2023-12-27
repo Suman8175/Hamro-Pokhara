@@ -120,10 +120,10 @@ class _DataListingState extends State<DataListing> {
                     itemCount: itemCount,
                     itemBuilder: (context, index) {
                       return Card(
-                        elevation: 7,
+                        elevation: 0.5,
                         shadowColor: Colors.deepPurple,
                         margin: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 6),
+                            horizontal: 10, vertical: 8),
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
@@ -134,7 +134,7 @@ class _DataListingState extends State<DataListing> {
                             ),
                             Container(
                               height: 130,
-                              width: 9,
+                              width: 5,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors.deepPurple),
@@ -166,7 +166,7 @@ class _DataListingState extends State<DataListing> {
                                             Text(
                                               hospitals[index].hospitalName,
                                               style: const TextStyle(
-                                                fontSize: 20,
+                                                fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
