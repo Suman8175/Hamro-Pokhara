@@ -120,77 +120,106 @@ class _DataListingState extends State<DataListing> {
                     itemCount: itemCount,
                     itemBuilder: (context, index) {
                       return Card(
-                        elevation: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        elevation: 7,
+                        shadowColor: Colors.deepPurple,
                         margin: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 6),
-                        child: Container(
-                          height: 150,
-                          padding: const EdgeInsets.all(8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                // width: 50,
-                                height: 80,
-                                child: Image.asset(
-                                  hospitals[index].imageUrl,
-                                  fit: BoxFit.fill,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              height: 130,
+                              width: 9,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.deepPurple),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 150,
+                                padding: const EdgeInsets.all(8),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      hospitals[index].imageUrl,
+                                      height: 80,
+                                      // width: 100,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        padding: const EdgeInsets.only(
+                                            left: 35, bottom: 8),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              hospitals[index].hospitalName,
+                                              style: const TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                              hospitals[index].location,
+                                              style: const TextStyle(
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                            Text(
+                                              hospitals[index].phoneNo,
+                                              style: const TextStyle(
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                          icon: const Icon(
+                                            Icons.phone,
+                                            color: Colors.deepPurple,
+                                            size: 30,
+                                          ),
+                                          onPressed: () {
+                                            // Add phone icon click action here
+                                            print('Phone icon clicked');
+                                          },
+                                        ),
+                                        const SizedBox(
+                                          width: 15,
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(
+                                            Icons.location_on,
+                                            size: 30,
+                                            color: Colors.deepOrange,
+                                          ),
+                                          onPressed: () {
+                                            // Add location icon click action here
+                                            print('Location icon clicked');
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Expanded(
-                                child: Container(
-                                  padding: const EdgeInsets.only(
-                                      left: 35, bottom: 8),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        hospitals[index].hospitalName,
-                                        style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Text(
-                                        hospitals[index].location,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      Text(
-                                        hospitals[index].phoneNo,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(Icons.phone),
-                                    onPressed: () {
-                                      // Add phone icon click action here
-                                      print('Phone icon clicked');
-                                    },
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.location_on),
-                                    onPressed: () {
-                                      // Add location icon click action here
-                                      print('Location icon clicked');
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       );
                     },

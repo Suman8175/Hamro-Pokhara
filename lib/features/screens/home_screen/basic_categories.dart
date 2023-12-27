@@ -26,7 +26,7 @@ class BasicCategories extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  print(GlobalVariables.categoryImages[index]['title']!);
+                  debugPrint(GlobalVariables.categoryImages[index]['title']!);
                 },
                 child: Column(
                   children: [

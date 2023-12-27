@@ -22,11 +22,13 @@ class TopCategories extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DataListing()));
+                  Navigator.push(
+                      (context),
+                      MaterialPageRoute(
+                          builder: (context) => const DataListing()));
                 },
                 child: Padding(
-                  padding: EdgeInsets.only(right: 20),
+                  padding: const EdgeInsets.only(right: 20),
                   child: Column(
                     children: [
                       Container(
