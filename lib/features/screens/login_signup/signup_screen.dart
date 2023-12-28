@@ -151,7 +151,7 @@ class _SignUpPageState extends State<SignUpPage> {
       obscureText: isPassword,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter some text';
+          return 'please_enter_some_text'.tr();
         }
         return null;
       },
@@ -168,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
       textInputAction: TextInputAction.next,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter some text';
+          return 'please_enter_some_text'.tr();
         }
         return null;
       },

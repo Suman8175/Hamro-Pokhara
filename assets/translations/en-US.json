@@ -22,5 +22,9 @@
     "login":"Login",
     "signup":"SignUp",
     "dont_have_acc":"Don't have an account?",
-    "already_have_acc":"Already have an account?"
+    "already_have_acc":"Already have an account?",
+    "top_categories":"Top Categories",
+    "search":"Search",
+    "popular_services":"Popular Services",
+    "please_enter_some_text":"Please enter some text"
 }

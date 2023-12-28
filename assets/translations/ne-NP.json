@@ -22,5 +22,10 @@
     "login":"लग - इन",
     "signup":"साइन अप",
     "dont_have_acc":"खाता छैन?",
-    "already_have_acc":"पहिले नै खाता छ?"
+    "already_have_acc":"पहिले नै खाता छ?",
+    "top_categories":"शीर्ष कोटीहरू",
+    "search":"खोज्नुहोस्",
+    "popular_services":"लोकप्रिय सेवाहरू",
+    "please_enter_some_text":"कृपया केही पाठ प्रविष्ट गर्नुहोस्"
+    
 }
