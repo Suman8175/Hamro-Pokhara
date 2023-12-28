@@ -8,10 +8,18 @@
         "button_color":"#a83252",
         "get_started_color":"#3256a8",
         "get_started_icon_color":"#1825db",
-        "login_page_heading_color":"#8a3dc4",
+        "login_page_heading_color":"#1825db",
         "language_select_button_color":"#bb5ebd",
         "login_signup_normal_text":"#808080",
-        "login_signup_text_2":"#cc0631"
+        "login_signup_text_2":"#cc0631",
+        "homepage_nav_color":"#0ee3ce",
+        "top_categories":"#121211",
+        "home_page_card1":"#f2f5f0",
+        "home_page_card2":"#f2f5f0",
+        "home_page_card3":"#f2f5f0",
+        "popular_services_text_color":"#121211"
+
+        
     }
             ]
     }

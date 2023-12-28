@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
+import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/basic_categories.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/popular_services.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/top_categories.dart';
@@ -19,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius:
-                        BorderRadius.vertical(bottom: Radius.circular(40))),
+                decoration: BoxDecoration(
+                    color: HexColor.fromHex(homepage_nav_color),
+                    borderRadius: const BorderRadius.vertical(
+                        bottom: Radius.circular(40))),
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -30,18 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      'Hamro Pokhara',
-                      style: TextStyle(
+                    Text(
+                      'hamro_pokhara'.tr(),
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 5),
                     Container(
                       height: 42,
+                      // width: double.infinity * 0.5,
                       margin: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.only(right: 10),
                       child: TextFormField(
                         decoration: InputDecoration(
                           prefixIcon: InkWell(
@@ -59,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsets.only(top: 10),
+                          contentPadding: const EdgeInsets.only(top: 12),
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(12),
@@ -72,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             borderSide: BorderSide(
                               color: Colors.black38,
-                              width: 1.2,
+                              width: 1,
                             ),
                           ),
-                          hintText: 'Search',
+                          hintText: 'search'.tr(),
                           hintStyle: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 17,
@@ -89,62 +94,62 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                'Top Categories',
+              Text(
+                'top_categories'.tr(),
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: HexColor.fromHex(top_categories)),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
                 child: Card(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     elevation: 2,
-                    color: Color.fromARGB(229, 246, 246, 246),
-                    child: TopCategories()),
+                    color: HexColor.fromHex(home_page_card1),
+                    child: const TopCategories()),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
                 child: Card(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     elevation: 2,
-                    color: Color.fromARGB(229, 246, 246, 246),
-                    child: BasicCategories()),
+                    color: HexColor.fromHex(home_page_card2),
+                    child: const BasicCategories()),
               ),
-              const Text(
-                'Popular Services',
+              Text(
+                'popular_services'.tr(),
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  color: HexColor.fromHex(popular_services_text_color),
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
                 child: Card(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     elevation: 2,
-                    color: Color.fromARGB(229, 246, 246, 246),
-                    child: PopularServices()),
+                    color: HexColor.fromHex(home_page_card3),
+                    child: const PopularServices()),
               ),
               Container(
                 color: Colors.amber,
                 height: 250,
                 width: double.infinity,
               ),
-              const Text('Suman')
             ],
           ),
         ),

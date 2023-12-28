@@ -137,7 +137,6 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
         controller: controller,
         decoration: InputDecoration(
-
           suffixIcon: IconButton(
             onPressed: () {
               setState(() {
@@ -150,15 +149,13 @@ class _LoginPageState extends State<LoginPage> {
                 : const Icon(Icons.done),
           ),
         ),
-
         obscureText: isPassword,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'Please enter some text';
+            return 'please_enter_some_text'.tr();
           }
           return null;
         });
-
   }
 
   Widget _buildInputFieldEmail(TextEditingController emailController) {
@@ -169,12 +166,11 @@ class _LoginPageState extends State<LoginPage> {
         textInputAction: TextInputAction.next,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'Please enter some text';
+            return 'please_enter_some_text'.tr();
           }
           return null;
         });
   }
-
 
   // Widget _buildRememberForgot() {
   //   return Row(
