@@ -17,6 +17,10 @@ late final String home_page_card1;
 late final String home_page_card2;
 late final String home_page_card3;
 late final String popular_services_text_color;
+late final String Profile_container1;
+late final String profile_text_color;
+late final String Profile_container2;
+late final String profile_color;
 
 class ColorFetcher {
   Future<void> readJson() async {
@@ -43,6 +47,11 @@ class ColorFetcher {
       home_page_card3 = data['color'][0]['home_page_card3'];
       popular_services_text_color =
           data['color'][0]['popular_services_text_color'];
+      Profile_container1 = data['color'][0]['Profile_container1'];
+      profile_text_color = data['color'][0]['profile_text_color'];
+      Profile_container2 = data['color'][0]['Profile_container2'];
+      Profile_container2 = data['color'][0]['Profile_container2'];
+      profile_color = data['color'][0]['profile_color'];
     } catch (e) {
       //Show Error here
     }

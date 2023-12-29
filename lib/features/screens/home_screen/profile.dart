@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/language/localization_checker.dart';
+import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: HexColor.fromHex(profile_color),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -33,15 +35,15 @@ class _ProfileState extends State<Profile> {
                     height: MediaQuery.of(context).size.height * 0.33,
                     color: Colors.blue,
                     child: Container(
-                      color: Colors.deepPurple,
+                      color: HexColor.fromHex(Profile_container1),
                       height: MediaQuery.of(context).size.height * 0.1,
                       padding: const EdgeInsets.only(bottom: 115),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           'PROFILE',
                           style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white,
+                            color: HexColor.fromHex(profile_text_color),
                           ),
                         ),
                       ),
@@ -104,7 +106,7 @@ class _ProfileState extends State<Profile> {
               ),
               ListTile(
                 title: Container(
-                  color: Colors.white,
+                  color: HexColor.fromHex(Profile_container2),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 5),
