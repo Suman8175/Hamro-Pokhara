@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
 import 'package:yhhhamropokhara/features/language/localization_checker.dart';
@@ -13,13 +14,13 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   String? dropDownIndex;
   String? dropDownIndexLanguage;
-  var dropDownList = ["Pokhara"];
-  var dropDownLanguage = ["English", "नेपाली"];
+  var dropDownList = ['profile_page_pokhara_text'.tr()];
+  var dropDownLanguage = ["profile_page_dropdown_english_text".tr(), "नेपाली"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor.fromHex(profile_color),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -40,7 +41,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.only(bottom: 115),
                       child: Center(
                         child: Text(
-                          'PROFILE',
+                          'profile_text'.tr(),
                           style: TextStyle(
                             fontSize: 30,
                             color: HexColor.fromHex(profile_text_color),
@@ -66,7 +67,7 @@ class _ProfileState extends State<Profile> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Container(
-                        height: 220,
+                        height: 230,
                         width: double.infinity,
                         decoration: const BoxDecoration(
                           color: Colors.white,
@@ -76,15 +77,15 @@ class _ProfileState extends State<Profile> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              radius: 60,
+                              radius: 50,
                               child: Image.asset('assets/images/user.png'),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            const Text(
-                              'Suman Devkota',
-                              style: TextStyle(
+                            Text(
+                              'username_text'.tr(),
+                              style: const TextStyle(
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
@@ -92,10 +93,10 @@ class _ProfileState extends State<Profile> {
                             const SizedBox(
                               height: 2,
                             ),
-                            const Text(
-                              'suman.yhhits@gmail.com',
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.black),
+                            Text(
+                              'emailaddress_text'.tr(),
+                              style: const TextStyle(
+                                  fontSize: 16, color: Colors.black),
                             ),
                           ],
                         ),
@@ -155,7 +156,8 @@ class _ProfileState extends State<Profile> {
                                     dropDownIndex = index;
                                   });
                                 },
-                                value: dropDownIndex ?? 'Pokhara',
+                                value: dropDownIndex ??
+                                    'profile_page_pokhara_text'.tr(),
                               ),
                             ),
                           ),
@@ -205,7 +207,8 @@ class _ProfileState extends State<Profile> {
                                         context, dropDownIndexLanguage!);
                                   });
                                 },
-                                value: dropDownIndexLanguage ?? 'English',
+                                value: dropDownIndexLanguage ??
+                                    'profile_page_dropdown_english_text'.tr(),
                               ),
                             ),
                           ),
@@ -222,11 +225,11 @@ class _ProfileState extends State<Profile> {
                             onPressed: () {
                               _openChangePassword();
                             },
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment(-1.2, 0),
                               child: Text(
-                                'Change password',
-                                style: TextStyle(
+                                'change_password_text'.tr(),
+                                style: const TextStyle(
                                     fontSize: 23,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal),
@@ -235,14 +238,14 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         const SizedBox(height: 15),
-                        const ListTile(
-                          leading: Icon(
+                        ListTile(
+                          leading: const Icon(
                             Icons.logout,
                             size: 30,
                           ),
                           title: Text(
-                            'Logout',
-                            style: TextStyle(
+                            'profile_page_logout'.tr(),
+                            style: const TextStyle(
                                 fontSize: 23,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal),
@@ -265,7 +268,7 @@ class _ProfileState extends State<Profile> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Change Password'),
+          title: Text('change_password_text'.tr()),
           content: SizedBox(
             width: MediaQuery.of(context).size.width * 0.77,
             child: Column(

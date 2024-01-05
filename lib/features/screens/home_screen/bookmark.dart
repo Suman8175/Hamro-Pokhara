@@ -2,38 +2,38 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-class HospitalDataModel {
-  final String hospitalName;
+class BookmarkDataModel {
+  final String name;
   final String imageUrl;
   final String location;
-  final String phoneNo;
+  final String description;
 
-  HospitalDataModel({
-    required this.hospitalName,
+  BookmarkDataModel({
+    required this.name,
     required this.imageUrl,
     required this.location,
-    required this.phoneNo,
+    required this.description,
   });
 
-  factory HospitalDataModel.fromJson(Map<String, dynamic> json) {
-    return HospitalDataModel(
-      hospitalName: json['hospital_name'],
+  factory BookmarkDataModel.fromJson(Map<String, dynamic> json) {
+    return BookmarkDataModel(
+      name: json['Name'],
       imageUrl: json['image_url'],
       location: json['Location'],
-      phoneNo: json['PhoneNo'],
+      description: json['Description'],
     );
   }
 }
 
-class DataListing extends StatefulWidget {
-  const DataListing({super.key});
+class BookmarkListing extends StatefulWidget {
+  const BookmarkListing({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _DataListingState createState() => _DataListingState();
+  _BookmarkListingState createState() => _BookmarkListingState();
 }
 
-class _DataListingState extends State<DataListing> {
+class _BookmarkListingState extends State<BookmarkListing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,8 +119,8 @@ class _DataListingState extends State<DataListing> {
                 if (data.hasError) {
                   return Center(child: Text("${data.error}"));
                 } else if (data.hasData) {
-                  var hospitals = data.data as List<HospitalDataModel>;
-                  int itemCount = hospitals.length;
+                  var bookmark = data.data as List<BookmarkDataModel>;
+                  int itemCount = bookmark.length;
                   return ListView.builder(
                     itemCount: itemCount,
                     itemBuilder: (context, index) {
@@ -154,7 +154,7 @@ class _DataListingState extends State<DataListing> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      hospitals[index].imageUrl,
+                                      bookmark[index].imageUrl,
                                       height: 80,
                                       // width: 100,
                                     ),
@@ -169,20 +169,20 @@ class _DataListingState extends State<DataListing> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              hospitals[index].hospitalName,
+                                              bookmark[index].name,
                                               style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Text(
-                                              hospitals[index].location,
+                                              bookmark[index].location,
                                               style: const TextStyle(
                                                 fontSize: 15,
                                               ),
                                             ),
                                             Text(
-                                              hospitals[index].phoneNo,
+                                              bookmark[index].description,
                                               style: const TextStyle(
                                                 fontSize: 15,
                                               ),
@@ -242,11 +242,11 @@ class _DataListingState extends State<DataListing> {
     );
   }
 
-  Future<List<HospitalDataModel>> readJsonData() async {
+  Future<List<BookmarkDataModel>> readJsonData() async {
     final jsondata = await DefaultAssetBundle.of(context)
-        .loadString('assets/json_files/listing/listing.json');
+        .loadString('assets/json_files/listing/bookmark.json');
     final Map<String, dynamic> jsonDataMap = json.decode(jsondata);
-    final List<dynamic> hospitalList = jsonDataMap['hospital'];
-    return hospitalList.map((e) => HospitalDataModel.fromJson(e)).toList();
+    final List<dynamic> bookmarkList = jsonDataMap['bookmark'];
+    return bookmarkList.map((e) => BookmarkDataModel.fromJson(e)).toList();
   }
 }

@@ -12,7 +12,7 @@
         "language_select_button_color":"#bb5ebd",
         "login_signup_normal_text":"#808080",
         "login_signup_text_2":"#cc0631",
-        "homepage_nav_color":"#0ee3ce",
+        "homepage_nav_color":"#0707e8",
         "top_categories":"#121211",
         "home_page_card1":"#f2f5f0",
         "home_page_card2":"#f2f5f0",
@@ -20,10 +20,7 @@
         "popular_services_text_color":"#121211",
         "Profile_container1":"#5032a8",
         "Profile_container2":"#ffffff",
-        "profile_text_color":"#f5f5e6",
-        "profile_color":"#f5f5e6"
-
-        
+        "profile_text_color":"#f5f5e6"
     }
             ]
     }

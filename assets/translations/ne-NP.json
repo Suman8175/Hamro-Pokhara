@@ -26,6 +26,13 @@
     "top_categories":"शीर्ष कोटीहरू",
     "search":"खोज्नुहोस्",
     "popular_services":"लोकप्रिय सेवाहरू",
-    "please_enter_some_text":"कृपया केही पाठ प्रविष्ट गर्नुहोस्"
+    "please_enter_some_text":"कृपया केही पाठ प्रविष्ट गर्नुहोस्",
+    "profile_text":"प्रोफाइल",
+    "username_text":"सजित गुरुङ",
+    "emailaddress_text":"sajit.yhhits@gmail.com",
+    "profile_page_pokhara_text":"पोखरा",
+    "change_password_text":"पासवर्ड परिवर्तन गर्नुहोस्",
+    "profile_page_dropdown_english_text":"अंग्रेजी",
+    "profile_page_logout":"बाहिर निस्कनु"
     
 }

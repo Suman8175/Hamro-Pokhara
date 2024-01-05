@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/json_files/color/color.json
     - assets/json_files/listing/listing.json
+    - assets/json_files/listing/bookmark.json
     - assets/translations/
     - assets/images/
 

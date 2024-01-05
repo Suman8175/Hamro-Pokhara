@@ -26,5 +26,12 @@
     "top_categories":"Top Categories",
     "search":"Search",
     "popular_services":"Popular Services",
-    "please_enter_some_text":"Please enter some text"
+    "please_enter_some_text":"Please enter some text",
+    "profile_text":"PROFILE",
+    "username_text":"Sajit Gurung",
+    "emailaddress_text":"sajit.yhhits@gmail.com",
+    "profile_page_pokhara_text": "Pokhara",
+    "profile_page_dropdown_english_text": "English",
+    "change_password_text":"Change password",
+    "profile_page_logout":"Logout"
 }

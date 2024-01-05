@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
+import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
+import 'package:yhhhamropokhara/features/screens/home_screen/bookmark.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/homepage.dart';
 import 'package:yhhhamropokhara/features/screens/home_screen/profile.dart';
 
@@ -20,7 +23,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    const Profile(),
+    const BookmarkListing(),
     const HomeScreen(),
     const Profile(),
   ];

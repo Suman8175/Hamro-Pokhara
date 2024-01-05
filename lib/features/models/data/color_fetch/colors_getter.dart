@@ -51,7 +51,6 @@ class ColorFetcher {
       profile_text_color = data['color'][0]['profile_text_color'];
       Profile_container2 = data['color'][0]['Profile_container2'];
       Profile_container2 = data['color'][0]['Profile_container2'];
-      profile_color = data['color'][0]['profile_color'];
     } catch (e) {
       //Show Error here
     }

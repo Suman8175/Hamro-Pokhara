@@ -1,0 +1,49 @@
+{
+    "bookmark": [
+      {
+        "Name": "Manipal Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      },
+      {
+        "Name": "Gandaki Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Ramghat-10",
+        "Description": "hello world"
+      },
+      {
+        "Name": "Manipal Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      },
+      {
+        "Name": "OM Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      },
+      {
+        "Name": "Charak Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      },
+      {
+        "Name": "Parkland Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      },
+  
+      {
+        "Name": "OM Hospital",
+        "image_url": "assets/images/gandaki.jpg",
+        "Location": "Fulbari-17",
+        "Description": "hello world"
+      }
+
+    ]
+  }
+  
