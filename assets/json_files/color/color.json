@@ -5,10 +5,10 @@
         "primary_color":"#808080",
         "text_color":"#0a0a0a",
         "title_color":"#5ec4a1",
-        "button_color":"#a83252",
+        "button_color":"#fafbfc",
         "get_started_color":"#3256a8",
         "get_started_icon_color":"#1825db",
-        "login_page_heading_color":"#1825db",
+        "login_page_heading_color":"#fafbfc",
         "language_select_button_color":"#bb5ebd",
         "login_signup_normal_text":"#808080",
         "login_signup_text_2":"#cc0631",
@@ -21,6 +21,10 @@
         "Profile_container1":"#5032a8",
         "Profile_container2":"#ffffff",
         "profile_text_color":"#f5f5e6"
+        
+    },
+    {
+        "login_page_button_text": "#0a0808"
     }
             ]
     }

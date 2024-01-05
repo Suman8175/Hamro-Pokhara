@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: const PopularServices()),
               ),
               Container(
-                color: Colors.amber,
+                color: Colors.deepPurple,
                 height: 250,
                 width: double.infinity,
               ),

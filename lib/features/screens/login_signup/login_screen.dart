@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isPassword = true;
+  bool rememberUser = false;
+
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -33,8 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       child: Scaffold(
-        backgroundColor:
-            Colors.transparent, //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Positioned(top: 80, child: _buildTop()),
@@ -109,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 20,
           ),
-          // _buildRememberForgot(),
+          _buildRememberForgot(),
           const SizedBox(
             height: 10,
           ),
@@ -127,8 +128,7 @@ class _LoginPageState extends State<LoginPage> {
     return Text(
       text,
       style: TextStyle(
-          color: HexColor.fromHex(
-              loginSignupNormalText), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          color: HexColor.fromHex(loginSignupNormalText),
           fontWeight: FontWeight.bold),
     );
   }
@@ -172,27 +172,30 @@ class _LoginPageState extends State<LoginPage> {
         });
   }
 
-  // Widget _buildRememberForgot() {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     children: [
-  //       Row(
-  //         children: [
-  //           Checkbox(
-  //               value: rememberUser,
-  //               onChanged: (value) {
-  //                 setState(() {
-  //                   rememberUser = value!;
-  //                 });
-  //               }),
-  //           _buildGreyText('remember_me'.tr())
-  //         ],
-  //       ),
-  //       TextButton(
-  //           onPressed: () {}, child: _buildGreyText('forget_password'.tr()))
-  //     ],
-  //   );
-  // }
+  Widget _buildRememberForgot() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Checkbox(
+              value: rememberUser,
+              onChanged: (value) {
+                setState(() {
+                  rememberUser = value!;
+                });
+              },
+            ),
+            _buildGreyText('remember_me'.tr())
+          ],
+        ),
+        TextButton(
+          onPressed: () {},
+          child: _buildGreyText('forget_password'.tr()),
+        )
+      ],
+    );
+  }
 
   Widget _buildLoginButton(BuildContext context) {
     return ElevatedButton(
@@ -203,10 +206,14 @@ class _LoginPageState extends State<LoginPage> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Processing Data')),
             );
+
+            // Print 1 if rememberUser is true, otherwise print 0
+            print(rememberUser ? 1 : 0);
+
             Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const NavigationMenu()));
+              context,
+              MaterialPageRoute(builder: (context) => const NavigationMenu()),
+            );
           }
         },
         style: ElevatedButton.styleFrom(
@@ -216,7 +223,11 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: HexColor.fromHex(buttonColor),
           minimumSize: const Size.fromHeight(60),
         ),
-        child: Text('login'.tr()));
+        child: Text(
+          'login'.tr(),
+          style: TextStyle(
+              color: HexColor.fromHex(login_page_button_text), fontSize: 18),
+        ));
   }
 
   Widget _signUpButton() {
@@ -239,8 +250,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 'signup'.tr(),
                 style: TextStyle(
-                    color: HexColor.fromHex(
-                        loginSignupText2), //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    color: HexColor.fromHex(loginSignupText2),
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),

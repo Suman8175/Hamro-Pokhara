@@ -1,8 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:yhhhamropokhara/core/extensions/color_extension.dart';
-import 'package:yhhhamropokhara/features/language/localization_checker.dart';
-import 'package:yhhhamropokhara/features/models/data/color_fetch/colors_getter.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -36,7 +33,7 @@ class _ProfileState extends State<Profile> {
                     height: MediaQuery.of(context).size.height * 0.33,
                     color: Colors.blue,
                     child: Container(
-                      color: HexColor.fromHex(Profile_container1),
+                      color: Colors.blue,
                       height: MediaQuery.of(context).size.height * 0.1,
                       padding: const EdgeInsets.only(bottom: 115),
                       child: Center(
@@ -44,7 +41,7 @@ class _ProfileState extends State<Profile> {
                           'profile_text'.tr(),
                           style: TextStyle(
                             fontSize: 30,
-                            color: HexColor.fromHex(profile_text_color),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -107,7 +104,6 @@ class _ProfileState extends State<Profile> {
               ),
               ListTile(
                 title: Container(
-                  color: HexColor.fromHex(Profile_container2),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 5),
@@ -203,8 +199,8 @@ class _ProfileState extends State<Profile> {
                                   setState(() {
                                     dropDownIndexLanguage = index2;
 
-                                    LocalizationChecker.changeLanguge(
-                                        context, dropDownIndexLanguage!);
+                                    // LocalizationChecker.changeLanguge(
+                                    //     context, dropDownIndexLanguage!);
                                   });
                                 },
                                 value: dropDownIndexLanguage ??
@@ -243,12 +239,20 @@ class _ProfileState extends State<Profile> {
                             Icons.logout,
                             size: 30,
                           ),
-                          title: Text(
-                            'profile_page_logout'.tr(),
-                            style: const TextStyle(
-                                fontSize: 23,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal),
+                          title: TextButton(
+                            onPressed: () {
+                              _showLogoutDialog();
+                            },
+                            child: Align(
+                              alignment: Alignment(-1.2, 0),
+                              child: Text(
+                                'profile_page_logout'.tr(),
+                                style: const TextStyle(
+                                    fontSize: 23,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -321,6 +325,35 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
+        );
+      },
+    );
+  }
+
+  void _showLogoutDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Logout'),
+          content: Text('Are you sure you want to logout?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+              },
+              child: Text('No'),
+            ),
+            TextButton(
+              onPressed: () {
+                // Perform logout actions here
+                // For example, you can navigate to the login screen
+                // Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pop(context); // Close the dialog
+              },
+              child: Text('Yes'),
+            ),
+          ],
         );
       },
     );

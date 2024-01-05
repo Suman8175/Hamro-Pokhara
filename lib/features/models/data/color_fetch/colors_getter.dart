@@ -21,6 +21,7 @@ late final String Profile_container1;
 late final String profile_text_color;
 late final String Profile_container2;
 late final String profile_color;
+late final String login_page_button_text;
 
 class ColorFetcher {
   Future<void> readJson() async {
@@ -50,7 +51,7 @@ class ColorFetcher {
       Profile_container1 = data['color'][0]['Profile_container1'];
       profile_text_color = data['color'][0]['profile_text_color'];
       Profile_container2 = data['color'][0]['Profile_container2'];
-      Profile_container2 = data['color'][0]['Profile_container2'];
+      login_page_button_text = data['color'][1]['login_page_button_text'];
     } catch (e) {
       //Show Error here
     }

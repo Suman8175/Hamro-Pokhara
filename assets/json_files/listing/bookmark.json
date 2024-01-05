@@ -4,44 +4,44 @@
         "Name": "Manipal Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
       {
         "Name": "Gandaki Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Ramghat-10",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
       {
         "Name": "Manipal Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
       {
         "Name": "OM Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
       {
         "Name": "Charak Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
       {
         "Name": "Parkland Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       },
   
       {
         "Name": "OM Hospital",
         "image_url": "assets/images/gandaki.jpg",
         "Location": "Fulbari-17",
-        "Description": "hello world"
+        "PhoneNo": "9825100881"
       }
 
     ]
